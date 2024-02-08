@@ -9,7 +9,7 @@ export const createHome = () => {
     const point2 = createPoint("Expertly Crafted Coffee:", "Our baristas create the perfect coffee to complement your donut, from robust espressos to creamy lattes.")
     const point3 = createPoint("Cozy Ambiance:", "Yum Yum offers a cozy, inviting space to unwind and enjoy a moment of delicious solitude or camaraderie.")
     
-    container.classList.add('homeContainer', 'glass')
+    container.classList.add('Container', 'glass')
     
     container.appendChild(point1)
     container.appendChild(point2)
