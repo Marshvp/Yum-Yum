@@ -1,6 +1,9 @@
 import './styles/main.css'
 import { createBackground } from './background';
 import { createHome } from './home';
+import { createMenu } from './menu';
+import { createAbout } from './about';
+
 
 //creates background
 createBackground()
@@ -19,8 +22,37 @@ header.appendChild(headline)
 ///
 // get content for append later
 const content = document.getElementById('content')
+const btn = document.querySelectorAll('button')
 
-content.appendChild(createHome())
+btn.forEach(e => {
+    e.addEventListener('click', function() {
+        loadPage(e.innerHTML);
+    })
+});
 
+function clearContent () {
+    content.innerHTML = '';
+}
+
+function loadPage(pageName) {
+    clearContent()
+
+    switch (pageName) {
+        case 'Home':
+            content.appendChild(createHome())
+            break;
+        case 'Menu':
+            content.appendChild(createMenu())
+            break;
+        case 'About':
+            content.appendChild(createAbout())
+            break;
+        default:
+            console.log('Page not found:', pageName);
+            break;
+    }
+}
+
+loadPage('Home')
 
 
