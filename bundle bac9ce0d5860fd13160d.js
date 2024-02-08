@@ -33,6 +33,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `@font-face {
 
 *{
     font-family: 'main';
+    color: rgb(255, 253, 208)
 }
 
 header {
@@ -43,7 +44,8 @@ header {
 }
 
 header > h1 {
-    font-size: 50px;
+    font-size: 70px;
+    margin: 0.25em 0 0 0 ;
     
 }
 
@@ -52,7 +54,28 @@ nav > button {
     
 }
 
-`, "",{"version":3,"sources":["webpack://./src/styles/main.css"],"names":[],"mappings":"AAAA;IACI,mBAAmB;IACnB,4CAA4C;AAChD;;AAEA;IACI,mBAAmB;AACvB;;AAEA;IACI,aAAa;IACb,uBAAuB;IACvB,kBAAkB;IAClB,gBAAgB;AACpB;;AAEA;IACI,eAAe;;AAEnB;;AAEA;IACI,UAAU;;AAEd","sourcesContent":["@font-face {\n    font-family: 'main';\n    src: url('../fonts/ProtestRiot-Regular.ttf');\n}\n\n*{\n    font-family: 'main';\n}\n\nheader {\n    display: grid;\n    justify-content: center;\n    text-align: center;\n    padding-top: 2em;\n}\n\nheader > h1 {\n    font-size: 50px;\n    \n}\n\nnav > button {\n    color: red;\n    \n}\n\n"],"sourceRoot":""}]);
+
+.homeContainer {
+    display: grid;
+    justify-content: center;
+    text-align: center;
+    margin: 3em;
+}
+
+.glass {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.pointDiv {
+    font-size: 24px;
+}
+
+`, "",{"version":3,"sources":["webpack://./src/styles/main.css"],"names":[],"mappings":"AAAA;IACI,mBAAmB;IACnB,4CAA4C;AAChD;;AAEA;IACI,mBAAmB;IACnB;AACJ;;AAEA;IACI,aAAa;IACb,uBAAuB;IACvB,kBAAkB;IAClB,gBAAgB;AACpB;;AAEA;IACI,eAAe;IACf,qBAAqB;;AAEzB;;AAEA;IACI,UAAU;;AAEd;;;AAGA;IACI,aAAa;IACb,uBAAuB;IACvB,kBAAkB;IAClB,WAAW;AACf;;AAEA;IACI,qFAAqF;IACrF,2BAA2B;IAC3B,mCAAmC;IACnC,mBAAmB;IACnB,2CAA2C;IAC3C,4CAA4C;AAChD;;AAEA;IACI,eAAe;AACnB","sourcesContent":["@font-face {\n    font-family: 'main';\n    src: url('../fonts/ProtestRiot-Regular.ttf');\n}\n\n*{\n    font-family: 'main';\n    color: rgb(255, 253, 208)\n}\n\nheader {\n    display: grid;\n    justify-content: center;\n    text-align: center;\n    padding-top: 2em;\n}\n\nheader > h1 {\n    font-size: 70px;\n    margin: 0.25em 0 0 0 ;\n    \n}\n\nnav > button {\n    color: red;\n    \n}\n\n\n.homeContainer {\n    display: grid;\n    justify-content: center;\n    text-align: center;\n    margin: 3em;\n}\n\n.glass {\n    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));\n    backdrop-filter: blur(20px);\n    -webkit-backdrop-filter: blur(10px);\n    border-radius: 20px;\n    border: 1px solid rgba(255, 255, 255, 0.18);\n    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);\n}\n\n.pointDiv {\n    font-size: 24px;\n}\n\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -534,6 +557,24 @@ module.exports = styleTagTransform;
 
 /***/ }),
 
+/***/ "./src/about.js":
+/*!**********************!*\
+  !*** ./src/about.js ***!
+  \**********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   createAbout: () => (/* binding */ createAbout)
+/* harmony export */ });
+function createAbout() {
+    const container = document.createElement('div');
+    return container
+}
+
+
+/***/ }),
+
 /***/ "./src/background.js":
 /*!***************************!*\
   !*** ./src/background.js ***!
@@ -578,11 +619,51 @@ const createHome = () => {
     
     const container = document.createElement('div');
     
-    container.innerHTML = 'Hello';
+    //create points to append
+    const point1 = createPoint("Artisanal Donuts:", "Handmade with love, our donuts blend classic and innovative flavors, crafted from the finest ingredients.")
+    const point2 = createPoint("Expertly Crafted Coffee:", "Our baristas create the perfect coffee to complement your donut, from robust espressos to creamy lattes.")
+    const point3 = createPoint("Cozy Ambiance:", "Yum Yum offers a cozy, inviting space to unwind and enjoy a moment of delicious solitude or camaraderie.")
+    
+    container.classList.add('homeContainer', 'glass')
+    
+    container.appendChild(point1)
+    container.appendChild(point2)
+    container.appendChild(point3)
     
 
-    
+
     return container;
+}
+
+function createPoint(title, desc) {
+    const div = document.createElement('div');
+    const pointTitle = document.createElement('h2');
+    const pointDesc = document.createElement('p');
+
+    div.classList.add('pointDiv')
+
+    pointTitle.innerHTML = title
+    pointDesc.innerHTML = desc
+    div.appendChild(pointTitle)
+    div.appendChild(pointDesc)
+    return div
+}
+
+/***/ }),
+
+/***/ "./src/menu.js":
+/*!*********************!*\
+  !*** ./src/menu.js ***!
+  \*********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   createMenu: () => (/* binding */ createMenu)
+/* harmony export */ });
+function createMenu() {
+    const container = document.createElement('div');
+    return container
 }
 
 /***/ }),
@@ -754,6 +835,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _styles_main_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/main.css */ "./src/styles/main.css");
 /* harmony import */ var _background__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./background */ "./src/background.js");
 /* harmony import */ var _home__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./home */ "./src/home.js");
+/* harmony import */ var _menu__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./menu */ "./src/menu.js");
+/* harmony import */ var _about__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./about */ "./src/about.js");
+
+
+
 
 
 
@@ -761,18 +847,52 @@ __webpack_require__.r(__webpack_exports__);
 //creates background
 (0,_background__WEBPACK_IMPORTED_MODULE_1__.createBackground)()
 
-// add title to header
+// add title and headline to header
 const header = document.getElementById('headerEl');
+const nav = document.getElementById('nav')
 const title = document.createElement('h1');
+const headline = document.createElement('h2');
 title.innerHTML = 'Yum Yum'
-header.append(title)
+headline.innerHTML = 'Indulge in Sweet Delights at Yum Yum - Your Donut Haven!'
+header.insertBefore(title, nav)
+header.appendChild(headline)
+
 
 ///
 // get content for append later
 const content = document.getElementById('content')
+const btn = document.querySelectorAll('button')
 
-content.appendChild(_home__WEBPACK_IMPORTED_MODULE_2__.createHome)
+btn.forEach(e => {
+    e.addEventListener('click', function() {
+        loadPage(e.innnerHtml);
+    })
+});
 
+function clearContent () {
+    content.innerHTML = '';
+}
+
+function loadPage(pageName) {
+    clearContent()
+
+    switch (pageName) {
+        case 'Home':
+            content.appendChild((0,_home__WEBPACK_IMPORTED_MODULE_2__.createHome)())
+            break;
+        case 'Menu':
+            content.appendChild((0,_menu__WEBPACK_IMPORTED_MODULE_3__.createMenu)())
+            break;
+        case 'About':
+            content.appendChild((0,_about__WEBPACK_IMPORTED_MODULE_4__.createAbout)())
+            break;
+        default:
+            console.log('Page not found:', pageName);
+            break;
+    }
+}
+
+loadPage('Home')
 
 
 
@@ -780,4 +900,4 @@ content.appendChild(_home__WEBPACK_IMPORTED_MODULE_2__.createHome)
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle 3fe5ee9a04af003399da.js.map
+//# sourceMappingURL=bundle bac9ce0d5860fd13160d.js.map
