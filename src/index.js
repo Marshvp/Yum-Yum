@@ -13,7 +13,7 @@ const header = document.getElementById('headerEl');
 const nav = document.getElementById('nav')
 const title = document.createElement('h1');
 const headline = document.createElement('h2');
-title.innerHTML = 'Yum Yum'
+title.innerHTML = 'Yum - Yum'
 headline.innerHTML = 'Indulge in Sweet Delights at Yum Yum - Your Donut Haven!'
 header.insertBefore(title, nav)
 header.appendChild(headline)
@@ -51,8 +51,14 @@ function loadPage(pageName) {
             console.log('Page not found:', pageName);
             break;
     }
+    localStorage.setItem('currentPage', pageName);
 }
 
-loadPage('Home')
 
+
+window.onload = function() {
+    // Retrieve the last visited page name from localStorage, default to 'Home'
+    const lastPage = localStorage.getItem('currentPage') || 'Home';
+    loadPage(lastPage);
+};
 

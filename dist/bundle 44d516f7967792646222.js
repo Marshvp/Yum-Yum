@@ -55,15 +55,28 @@ nav > button {
 }
 
 
-.homeContainer {
+.Container {
     display: grid;
     justify-content: center;
     text-align: center;
     margin: 3em;
 }
 
+.contactContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-row: 1f 1f;
+    justify-content: center;
+    text-align: center;
+    margin: 3em;
+}
+
+#contactGet {
+    grid-column: 1 / 4;
+}
+
 .glass {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0));
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(10px);
     border-radius: 20px;
@@ -75,7 +88,7 @@ nav > button {
     font-size: 24px;
 }
 
-`, "",{"version":3,"sources":["webpack://./src/styles/main.css"],"names":[],"mappings":"AAAA;IACI,mBAAmB;IACnB,4CAA4C;AAChD;;AAEA;IACI,mBAAmB;IACnB;AACJ;;AAEA;IACI,aAAa;IACb,uBAAuB;IACvB,kBAAkB;IAClB,gBAAgB;AACpB;;AAEA;IACI,eAAe;IACf,qBAAqB;;AAEzB;;AAEA;IACI,UAAU;;AAEd;;;AAGA;IACI,aAAa;IACb,uBAAuB;IACvB,kBAAkB;IAClB,WAAW;AACf;;AAEA;IACI,qFAAqF;IACrF,2BAA2B;IAC3B,mCAAmC;IACnC,mBAAmB;IACnB,2CAA2C;IAC3C,4CAA4C;AAChD;;AAEA;IACI,eAAe;AACnB","sourcesContent":["@font-face {\n    font-family: 'main';\n    src: url('../fonts/ProtestRiot-Regular.ttf');\n}\n\n*{\n    font-family: 'main';\n    color: rgb(255, 253, 208)\n}\n\nheader {\n    display: grid;\n    justify-content: center;\n    text-align: center;\n    padding-top: 2em;\n}\n\nheader > h1 {\n    font-size: 70px;\n    margin: 0.25em 0 0 0 ;\n    \n}\n\nnav > button {\n    color: red;\n    \n}\n\n\n.homeContainer {\n    display: grid;\n    justify-content: center;\n    text-align: center;\n    margin: 3em;\n}\n\n.glass {\n    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));\n    backdrop-filter: blur(20px);\n    -webkit-backdrop-filter: blur(10px);\n    border-radius: 20px;\n    border: 1px solid rgba(255, 255, 255, 0.18);\n    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);\n}\n\n.pointDiv {\n    font-size: 24px;\n}\n\n"],"sourceRoot":""}]);
+`, "",{"version":3,"sources":["webpack://./src/styles/main.css"],"names":[],"mappings":"AAAA;IACI,mBAAmB;IACnB,4CAA4C;AAChD;;AAEA;IACI,mBAAmB;IACnB;AACJ;;AAEA;IACI,aAAa;IACb,uBAAuB;IACvB,kBAAkB;IAClB,gBAAgB;AACpB;;AAEA;IACI,eAAe;IACf,qBAAqB;;AAEzB;;AAEA;IACI,UAAU;;AAEd;;;AAGA;IACI,aAAa;IACb,uBAAuB;IACvB,kBAAkB;IAClB,WAAW;AACf;;AAEA;IACI,aAAa;IACb,kCAAkC;IAClC,eAAe;IACf,uBAAuB;IACvB,kBAAkB;IAClB,WAAW;AACf;;AAEA;IACI,kBAAkB;AACtB;;AAEA;IACI,sFAAsF;IACtF,2BAA2B;IAC3B,mCAAmC;IACnC,mBAAmB;IACnB,2CAA2C;IAC3C,4CAA4C;AAChD;;AAEA;IACI,eAAe;AACnB","sourcesContent":["@font-face {\n    font-family: 'main';\n    src: url('../fonts/ProtestRiot-Regular.ttf');\n}\n\n*{\n    font-family: 'main';\n    color: rgb(255, 253, 208)\n}\n\nheader {\n    display: grid;\n    justify-content: center;\n    text-align: center;\n    padding-top: 2em;\n}\n\nheader > h1 {\n    font-size: 70px;\n    margin: 0.25em 0 0 0 ;\n    \n}\n\nnav > button {\n    color: red;\n    \n}\n\n\n.Container {\n    display: grid;\n    justify-content: center;\n    text-align: center;\n    margin: 3em;\n}\n\n.contactContainer {\n    display: grid;\n    grid-template-columns: 1fr 1fr 1fr;\n    grid-row: 1f 1f;\n    justify-content: center;\n    text-align: center;\n    margin: 3em;\n}\n\n#contactGet {\n    grid-column: 1 / 4;\n}\n\n.glass {\n    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0));\n    backdrop-filter: blur(20px);\n    -webkit-backdrop-filter: blur(10px);\n    border-radius: 20px;\n    border: 1px solid rgba(255, 255, 255, 0.18);\n    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);\n}\n\n.pointDiv {\n    font-size: 24px;\n}\n\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -568,10 +581,52 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   createAbout: () => (/* binding */ createAbout)
 /* harmony export */ });
 function createAbout() {
-    const container = document.createElement('div');
-    return container
+    const aboutContent = document.createElement('div');
+    aboutContent.appendChild(about());
+    aboutContent.appendChild(contact());
+
+    return aboutContent
 }
 
+function about (){
+    const aboutContainer = document.createElement('div');
+    aboutContainer.classList.add('Container', 'glass')
+
+    const aboutText = document.createElement('p');
+    const aboutText2 = document.createElement('p');
+    
+    aboutText.innerHTML = "Yum Yum Donut Cafe is a cozy haven in our community, born from a dream to blend the joy of freshly made donuts with the comfort of expertly brewed coffee. Each detail in our cafe, from the aromatic espresso to the sugary glaze of our artisanal donuts, is crafted with love. It's a place not just for a quick snack but for creating memories over the love for coffee and donuts."
+    aboutText.style.fontSize = '24px'
+    aboutText2.innerHTML = "We prioritize quality ingredients and homemade pastries, making each donut a delight and every coffee sip a perfect match. Our cafe's inviting atmosphere is designed for you to unwind, making Yum Yum a sweet part of your daily routine. At Yum Yum, every visit is a flavorful journey into the heart of our community's joy."
+    aboutText2.style.fontSize = '24px'
+    
+    aboutContainer.appendChild(aboutText)
+    aboutContainer.appendChild(aboutText2)
+    return aboutContainer
+}
+
+function contact () {
+    const contactContainer = document.createElement('div');
+    contactContainer.classList.add('contactContainer', 'glass');
+
+    const contactTel = document.createElement('p')
+    const contactemail = document.createElement('p')
+    const contactaddress= document.createElement('p')
+    const contactText= document.createElement('p')
+
+    contactTel.innerHTML = 'Tele: 02020202020'
+    contactemail.innerHTML = 'Yum-Yum@gmail.com'
+    contactaddress.innerHTML = 'Totally real address, Real Place, ZIP'
+    contactText.innerHTML = 'GET IN TOUCH!'
+    contactText.id = 'contactGet'
+
+    contactContainer.appendChild(contactText)
+    contactContainer.appendChild(contactTel)
+    contactContainer.appendChild(contactemail)
+    contactContainer.appendChild(contactaddress)
+
+    return contactContainer
+}
 
 /***/ }),
 
@@ -624,7 +679,7 @@ const createHome = () => {
     const point2 = createPoint("Expertly Crafted Coffee:", "Our baristas create the perfect coffee to complement your donut, from robust espressos to creamy lattes.")
     const point3 = createPoint("Cozy Ambiance:", "Yum Yum offers a cozy, inviting space to unwind and enjoy a moment of delicious solitude or camaraderie.")
     
-    container.classList.add('homeContainer', 'glass')
+    container.classList.add('Container', 'glass')
     
     container.appendChild(point1)
     container.appendChild(point2)
@@ -663,6 +718,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 function createMenu() {
     const container = document.createElement('div');
+    container.classList.add('homeContainer', 'glass')
     return container
 }
 
@@ -852,7 +908,7 @@ const header = document.getElementById('headerEl');
 const nav = document.getElementById('nav')
 const title = document.createElement('h1');
 const headline = document.createElement('h2');
-title.innerHTML = 'Yum Yum'
+title.innerHTML = 'Yum - Yum'
 headline.innerHTML = 'Indulge in Sweet Delights at Yum Yum - Your Donut Haven!'
 header.insertBefore(title, nav)
 header.appendChild(headline)
@@ -865,7 +921,7 @@ const btn = document.querySelectorAll('button')
 
 btn.forEach(e => {
     e.addEventListener('click', function() {
-        loadPage(e.innnerHtml);
+        loadPage(e.innerHTML);
     })
 });
 
@@ -900,4 +956,4 @@ loadPage('Home')
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle bac9ce0d5860fd13160d.js.map
+//# sourceMappingURL=bundle 44d516f7967792646222.js.map
