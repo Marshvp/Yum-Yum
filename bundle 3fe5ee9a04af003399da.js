@@ -22,14 +22,37 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var ___CSS_LOADER_URL_IMPORT_0___ = new URL(/* asset import */ __webpack_require__(/*! ../assets/donutbackground.jpg */ "./src/assets/donutbackground.jpg"), __webpack_require__.b);
+var ___CSS_LOADER_URL_IMPORT_0___ = new URL(/* asset import */ __webpack_require__(/*! ../fonts/ProtestRiot-Regular.ttf */ "./src/fonts/ProtestRiot-Regular.ttf"), __webpack_require__.b);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_0___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, `* {
+___CSS_LOADER_EXPORT___.push([module.id, `@font-face {
+    font-family: 'main';
+    src: url(${___CSS_LOADER_URL_REPLACEMENT_0___});
+}
+
+*{
+    font-family: 'main';
+}
+
+header {
+    display: grid;
+    justify-content: center;
+    text-align: center;
+    padding-top: 2em;
+}
+
+header > h1 {
+    font-size: 50px;
+    
+}
+
+nav > button {
     color: red;
-    background: url(${___CSS_LOADER_URL_REPLACEMENT_0___});
-}`, "",{"version":3,"sources":["webpack://./src/styles/main.css"],"names":[],"mappings":"AAAA;IACI,UAAU;IACV,mDAAgD;AACpD","sourcesContent":["* {\n    color: red;\n    background: url('../assets/donutbackground.jpg');\n}"],"sourceRoot":""}]);
+    
+}
+
+`, "",{"version":3,"sources":["webpack://./src/styles/main.css"],"names":[],"mappings":"AAAA;IACI,mBAAmB;IACnB,4CAA4C;AAChD;;AAEA;IACI,mBAAmB;AACvB;;AAEA;IACI,aAAa;IACb,uBAAuB;IACvB,kBAAkB;IAClB,gBAAgB;AACpB;;AAEA;IACI,eAAe;;AAEnB;;AAEA;IACI,UAAU;;AAEd","sourcesContent":["@font-face {\n    font-family: 'main';\n    src: url('../fonts/ProtestRiot-Regular.ttf');\n}\n\n*{\n    font-family: 'main';\n}\n\nheader {\n    display: grid;\n    justify-content: center;\n    text-align: center;\n    padding-top: 2em;\n}\n\nheader > h1 {\n    font-size: 50px;\n    \n}\n\nnav > button {\n    color: red;\n    \n}\n\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -511,21 +534,56 @@ module.exports = styleTagTransform;
 
 /***/ }),
 
-/***/ "./src/generateJoke.js":
-/*!*****************************!*\
-  !*** ./src/generateJoke.js ***!
-  \*****************************/
+/***/ "./src/background.js":
+/*!***************************!*\
+  !*** ./src/background.js ***!
+  \***************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   createBackground: () => (/* binding */ createBackground)
 /* harmony export */ });
-function generateJoke() {
-    return "I dont trust stairs. They're always up to something."
-}
+/* harmony import */ var _assets_donutbackground_jpg__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./assets/donutbackground.jpg */ "./src/assets/donutbackground.jpg");
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (generateJoke);
+
+const createBackground = () => {
+    const mainbackground = new Image();
+    mainbackground.src = _assets_donutbackground_jpg__WEBPACK_IMPORTED_MODULE_0__;
+    
+    const body = document.body;
+    body.style.backgroundImage = `url(${_assets_donutbackground_jpg__WEBPACK_IMPORTED_MODULE_0__})`;
+    body.style.backgroundSize = 'cover';
+    body.style.backgroundPosition = `center`;
+    body.style.margin = '0px';
+    body.style.backgroundRepeat = 'no repeat';
+};
+
+
+/***/ }),
+
+/***/ "./src/home.js":
+/*!*********************!*\
+  !*** ./src/home.js ***!
+  \*********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   createHome: () => (/* binding */ createHome)
+/* harmony export */ });
+
+
+const createHome = () => {
+    
+    const container = document.createElement('div');
+    
+    container.innerHTML = 'Hello';
+    
+
+    
+    return container;
+}
 
 /***/ }),
 
@@ -536,6 +594,16 @@ function generateJoke() {
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 module.exports = __webpack_require__.p + "donutbackground.jpg";
+
+/***/ }),
+
+/***/ "./src/fonts/ProtestRiot-Regular.ttf":
+/*!*******************************************!*\
+  !*** ./src/fonts/ProtestRiot-Regular.ttf ***!
+  \*******************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "ProtestRiot-Regular.ttf";
 
 /***/ })
 
@@ -683,21 +751,33 @@ var __webpack_exports__ = {};
   !*** ./src/index.js ***!
   \**********************/
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _generateJoke__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./generateJoke */ "./src/generateJoke.js");
-/* harmony import */ var _styles_main_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles/main.css */ "./src/styles/main.css");
+/* harmony import */ var _styles_main_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/main.css */ "./src/styles/main.css");
+/* harmony import */ var _background__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./background */ "./src/background.js");
+/* harmony import */ var _home__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./home */ "./src/home.js");
 
 
 
 
+//creates background
+(0,_background__WEBPACK_IMPORTED_MODULE_1__.createBackground)()
+
+// add title to header
+const header = document.getElementById('headerEl');
+const title = document.createElement('h1');
+title.innerHTML = 'Yum Yum'
+header.append(title)
+
+///
+// get content for append later
+const content = document.getElementById('content')
+
+content.appendChild(_home__WEBPACK_IMPORTED_MODULE_2__.createHome)
 
 
 
 
-
-console.log((0,_generateJoke__WEBPACK_IMPORTED_MODULE_0__["default"])());
-console.log(1);
 })();
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle 617ca4145316043c4587.js.map
+//# sourceMappingURL=bundle 3fe5ee9a04af003399da.js.map
